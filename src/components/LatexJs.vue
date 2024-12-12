@@ -1,19 +1,15 @@
 <template>
     <div v-katex="'\\frac{a_i}{1+x}'"></div>
     <br>
-    <div v-katex="'$a=b+c$'">
-        
+    <!-- <div v-katex="'\\frac{a_i}{1+x}'"></div> -->
+    <div v-katex:auto="{ options }">
+      \(\frac{a_i}{1+x}\)
     </div>
-    <!-- <div v-katex="'$a=b+c$'"></div> -->
-    <br>
-    <div v-katex:auto="{ options }">\(\frac{a_i}{1+x}\)</div>
 </template>
 
 <script setup>
-import  { ref } from 'vue'
-const options = ref({
-    
-})
+import { ref } from 'vue'
+const options = ref({})
 </script>
 
 <style lang="scss" scoped>
