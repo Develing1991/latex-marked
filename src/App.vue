@@ -8,6 +8,6 @@
 import Marked from './components/Marked.vue'
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

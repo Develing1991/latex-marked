@@ -1,5 +1,5 @@
 <template>
-    <div v-html="aaa" style="width: 500px; text-align: left;">
+    <div v-html="markdownText" style="width: 500px; text-align: left;">
 
     </div>
 </template>
@@ -11,37 +11,18 @@ import markedKatex from "marked-katex-extension";
 import { markedHighlight } from "marked-highlight";
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark.css';
-const aaa = ref('')
-// const markedownText = ref(`
-// # 제목1
-// ## 제목2
-// - 1. 목차
-// - 2. 목차
+const markdownText = ref('')
+const getText = ref(`
 
-// _sf_
-// __sda__
-// ___asdas___
-// ____saddsa____
-// *sdfs*
+|sfdfs|fsdds|sdfds|
+|---|---|---|
+|fdsfd|fsdfds|fsdds|
 
-// <br>
-
-// \`\`\`javascript
-// const highlight = "code";
-// function aaa () {
-//     return 1
-// \}
-// \`\`\`
-
-// $\(\frac{a_i}{1+x}\)$
-
-// ![alt]("sds")
-// `)
-const markedownText = ref(`
 # 제목1
 ## 제목2
-- 1. 목차
-- 2. 목차
+1. 모크차
+    1. 목차
+    1. 목차
 
 _sf_
 __sda__
@@ -68,12 +49,15 @@ $$
    c & d
 \\end{array}
 $$
+
+> sdf
+>> dsfsd
 `)
 const getMarkDown = () => {
-    const output = marked(markedownText.value, {
+    const output = marked(getText.value, {
         // async: true,
         // pedantic: false,
-        // gfm: true,
+        gfm: true,
         // mangle: false,
         // headerIds: false,
     });
@@ -88,11 +72,41 @@ onMounted(() => {
         }
     }));
     marked.use(markedKatex({ nonStandard: true }));
-    markedownText.value = marked(markedownText.value)
-    aaa.value = getMarkDown()
+    markdownText.value = getMarkDown()
+
+    // lang, copy button
+    document.querySelectorAll('pre')
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+
+:deep(table) {
+  border: 2px solid black;
+  border-collapse: collapse;
+  border-radius: 3px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #000;
+  overflow: hidden;
+
+}
+:deep(thead){
+    border-radius: 10px;
+}
+:deep(th) {
+  background-color: #c2c2c2;
+  padding: 10px;
+  border: 1px solid black;
+}
+:deep(td) {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+:deep(blockquote){
+    border-left: 2px solid #20c997;
+    padding-left: 5px;
+    background-color: #f8f9fa;
+}
 
 </style>
