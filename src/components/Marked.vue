@@ -109,7 +109,7 @@ onMounted(() => {
 
             block.setAttribute('style', 'margin-top: 0px; border-radius: 0 0 5px 5px; overflow: hidden;')
             block.setAttribute('id', `target-${codeBlockUuid}`)
-            codeLanguageEl.innerHTML = codeLanguage
+            codeLanguageEl.textContent = codeLanguage
             codeCopyButtonEl.innerHTML = 'COPY'
             codeCopyButtonEl.classList.add(`copy-btn-${codeBlockUuid}`)
             codeCopyButtonEl.setAttribute('data-clipboard-target', `#target-${codeBlockUuid}`)
