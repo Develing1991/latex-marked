@@ -96,16 +96,11 @@ onMounted(() => {
     markdownText.value = getMarkDown()
 
     nextTick(() => {
-         // lang, copy button
+        // create codeblock header
         const codeBlocks = document.querySelectorAll('pre')
-        // chldren('code') -> 의 class="hljs language-java" 에서 language 추출 후  codeLanguageEl.innerHTML  로 넣어주기 
         codeBlocks.forEach(block => {
-            // block.children.
-            
             const codeEl = Array.from(block.children).find(child => child.tagName === 'CODE')
-            
             const codeLanguage = Array.from(codeEl.classList).find(className => className.startsWith('language'))?.split('-')[1] ?? 'plain text'
-            // debugger;
             const codeBlockUuid = uuidv4()
             // const { text, isSupported, copy } = useClipboard()
             const headerWrapperEl = document.createElement('div')
@@ -125,7 +120,6 @@ onMounted(() => {
                 codeCopyButtonEl.disabled = true
                 codeCopyButtonEl.style.cursor = 'default'
                 const timer = setTimeout(() => {
-                    // window.getSelection()!.removeAllRanges()
                     codeCopyButtonEl.innerHTML = 'COPY'
                     codeCopyButtonEl.disabled = false
                     codeCopyButtonEl.style.cursor = 'pointer'
