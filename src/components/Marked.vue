@@ -52,6 +52,14 @@ $$
 
 > sdf
 >> dsfsd
+
+\`\`\`javascript
+const highlight = "code";
+function aaa () {
+    return 1
+\}
+\`\`\`
+
 `)
 const getMarkDown = () => {
     const output = marked(getText.value, {
@@ -75,7 +83,7 @@ onMounted(() => {
     markdownText.value = getMarkDown()
 
     // lang, copy button
-    document.querySelectorAll('pre')
+    document.querySelectorAll('pre').forEach(el => console.log(el))
 })
 </script>
 
