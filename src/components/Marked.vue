@@ -45,9 +45,13 @@ function aaa1 () {
 \}
 \`\`\`
 
-$
-c = \\pm\\sqrt{a^2 + b^2}
-$
+sadsad
+$ c = \\pm\\sqrt{a^2 + b^2} $
+dsadsa
+
+sadsad
+$$ c = \\pm\\sqrt{a^2 + b^2} $$
+dsadsa
 
 $$
 \\begin{array}{cc}
